@@ -39,7 +39,7 @@
         },
         "OwnerName": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "kentsui",
             "metadata": {
                 "description": "Owner of this deployment, person to contact for question."
             }
@@ -61,7 +61,7 @@
         },
         "confidentiality": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "public",
             "metadata": {
                 "description": "confidentiality"
             }
