@@ -17,7 +17,7 @@
             }
         },
         "defaultRedirectUrl": {
-            "defaultValue": "https://azure.com",
+            "defaultValue": "https://www.jec.com",
             "type": "string",
             "metadata": {
                 "description": "Default URL used when key passed by the user is not found."
