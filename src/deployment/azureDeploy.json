@@ -37,18 +37,70 @@
                 "description": "Name of the branch to use when deploying (Default = main)."
             }
         },
-        "ExpireOn": {
-            "type": "string",
-            "defaultValue": "[utcNow('yyyy-MM-dd')]",
-            "metadata": {
-                "description": "Just a text value (format: yyyy-MM-dd) that express when it is safe to delete these resources"
-            }
-        },
         "OwnerName": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
                 "description": "Owner of this deployment, person to contact for question."
+            }
+        }
+        ,
+        "businessimpact": {
+            "type": "string",
+            "defaultValue": "non-crtical",
+            "metadata": {
+                "description": "businessimpact"
+            }
+        },
+        "charge-back": {
+            "type": "string",
+            "defaultValue": "IT",
+            "metadata": {
+                "description": "charge-back"
+            }
+        },
+        "confidentiality": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "confidentiality"
+            }
+        },
+        "contactdetails": {
+            "type": "string",
+            "defaultValue": "kentsui",
+            "metadata": {
+                "description": "contactdetails"
+            }
+        },
+        "department": {
+            "type": "string",
+            "defaultValue": "IT",
+            "metadata": {
+                "description": "department"
+            }
+        },
+        "environment": {
+            "type": "string",
+            "defaultValue": "UAT",
+            "metadata": {
+                "description": "Owner of this deployment, person to contact for question."
+            }
+        }
+        ,
+        "internet-facing": {
+            "type": "string",
+            "defaultValue": "YES",
+            "metadata": {
+                "description": "internet-facing"
+            }
+        }
+        ,
+        "region": {
+            "type": "string",
+            "defaultValue": "HK",
+            "metadata": {
+                "description": "region"
             }
         }
     },
@@ -70,8 +122,16 @@
             "kind": "functionapp",
             "location": "[resourceGroup().location]",
             "tags": {
-                "Owner": "[parameters('OwnerName')]",
-                "ExpireOn": "[parameters('ExpireOn')]"
+                "owner": "[parameters('OwnerName')]",
+                "businessimpact": "[parameters('businessimpact')]",
+                "charge-back": "[parameters('charge-back')]",
+                "confidentiality": "[parameters('confidentiality')]",
+                "contactdetails": "[parameters('contactdetails')]",
+                "department": "[parameters('department')]",
+                "environment": "[parameters('environment')]",
+                "internet-facing": "[parameters('internet-facing')]",
+                "region": "[parameters('region')]",
+                "name": "[variables('funcAppName')]"
             },
             "dependsOn": [
                 "[concat('microsoft.insights/components/', variables('insightsAppName'))]",
@@ -164,8 +224,16 @@
             "location": "[resourceGroup().location]",
             "kind": "",
             "tags": {
-                "Owner": "[parameters('OwnerName')]",
-                "ExpireOn": "[parameters('ExpireOn')]"
+                "owner": "[parameters('OwnerName')]",
+                "businessimpact": "[parameters('businessimpact')]",
+                "charge-back": "[parameters('charge-back')]",
+                "confidentiality": "[parameters('confidentiality')]",
+                "contactdetails": "[parameters('contactdetails')]",
+                "department": "[parameters('department')]",
+                "environment": "[parameters('environment')]",
+                "internet-facing": "[parameters('internet-facing')]",
+                "region": "[parameters('region')]",
+                "name": "[variables('funcHhostingPlanName')]"
             },
             "properties": {
                 "name": "[variables('funcHhostingPlanName')]",
@@ -182,8 +250,16 @@
             "type": "Microsoft.Insights/components",
             "location": "[resourceGroup().location]",
             "tags": {
-                "Owner": "[parameters('OwnerName')]",
-                "ExpireOn": "[parameters('ExpireOn')]"
+                "owner": "[parameters('OwnerName')]",
+                "businessimpact": "[parameters('businessimpact')]",
+                "charge-back": "[parameters('charge-back')]",
+                "confidentiality": "[parameters('confidentiality')]",
+                "contactdetails": "[parameters('contactdetails')]",
+                "department": "[parameters('department')]",
+                "environment": "[parameters('environment')]",
+                "internet-facing": "[parameters('internet-facing')]",
+                "region": "[parameters('region')]",
+                "name": "[variables('insightsAppName')]"
             },
             "kind": "",
             "properties": {
@@ -201,10 +277,17 @@
                 "name": "Standard_LRS",
                 "tier": "Standard"
             },
-            "tags": {
-                "displayName": "[variables('storageAccountName')]",
-                "Owner": "[parameters('OwnerName')]",
-                "ExpireOn": "[parameters('ExpireOn')]"
+             "tags": {
+                "owner": "[parameters('OwnerName')]",
+                "businessimpact": "[parameters('businessimpact')]",
+                "charge-back": "[parameters('charge-back')]",
+                "confidentiality": "[parameters('confidentiality')]",
+                "contactdetails": "[parameters('contactdetails')]",
+                "department": "[parameters('department')]",
+                "environment": "[parameters('environment')]",
+                "internet-facing": "[parameters('internet-facing')]",
+                "region": "[parameters('region')]",
+                "name": "[variables('storageAccountName')]"
             },
             "properties": {
                 "supportsHttpsTrafficOnly": true
